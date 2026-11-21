@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Selected frontend projects by Muhammad Hammad Imran — search and filter by technology to find relevant work." />
+  <title>Projects — Muhammad Hammad Imran</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="theme.js" defer></script>
+  <script src="projects.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Muhammad Hammad Imran — home">
+        <span class="brand-mark" aria-hidden="true">HIM</span>
+        <span class="brand-name">Muhammad Hammad Imran</span>
+      </a>
+
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button"
+              aria-label="Switch to dark theme" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">🌙</span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" aria-labelledby="projects-heading">
+      <div class="container">
+
+        <header class="page-heading">
+          <h1 id="projects-heading">Projects</h1>
+          <p class="lede">
+            A selection of frontend work. Use the search box and the technology
+            filter together to narrow down results.
+          </p>
+        </header>
+
+        <!-- ===== Controls ===== -->
+        <form class="controls" role="search" aria-label="Filter projects"
+              onsubmit="return false;">
+          <div class="field">
+            <label for="search">Search</label>
+            <input id="search" name="search" type="search"
+                   placeholder="Search by title or tech…"
+                   autocomplete="off" />
+          </div>
+
+          <div class="field">
+            <label for="tech-filter">Technology</label>
+            <select id="tech-filter" name="tech">
+              <option value="">All technologies</option>
+              <!-- options populated by JS from data -->
+            </select>
+          </div>
+        </form>
+
+        <!-- Live result count -->
+        <p class="result-count" id="result-count" aria-live="polite">
+          Loading projects…
+        </p>
+
+        <!-- ===== Grid (populated by JS) ===== -->
+        <div id="project-grid" class="project-grid" aria-live="polite"></div>
+
+        <!-- Empty state -->
+        <p id="empty-state" class="empty-state" hidden>
+          No projects found. Try a different search or filter.
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Muhammad Hammad Imran</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="mailto:hello@example.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ===== Project detail <dialog> (bonus feature) ===== -->
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title">
+    <form method="dialog" class="dialog-inner">
+      <button class="dialog-close" type="submit" aria-label="Close dialog">✕</button>
+      <h2 id="dialog-title">Project title</h2>
+      <p id="dialog-desc"></p>
+      <p><strong>Year:</strong> <span id="dialog-year"></span></p>
+      <p><strong>Tech:</strong> <span id="dialog-tech"></span></p>
+      <p><a id="dialog-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open project ↗</a></p>
+    </form>
+  </dialog>
+
+</body>
+</html>

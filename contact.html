@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Muhammad Hammad Imran — send a message about internships, freelance work or collaboration." />
+  <title>Contact — Muhammad Hammad Imran</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="theme.js" defer></script>
+  <script src="contact.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Muhammad Hammad Imran — home">
+        <span class="brand-mark" aria-hidden="true">HIM</span>
+        <span class="brand-name">Muhammad Hammad Imran</span>
+      </a>
+
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button"
+              aria-label="Switch to dark theme" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">🌙</span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container page-narrow">
+
+        <header class="page-heading">
+          <h1 id="contact-heading">Contact me</h1>
+          <p class="lede">
+            Have a role, project or question? Send a message and I'll reply within
+            two working days.
+          </p>
+        </header>
+
+        <!-- noValidate lets JS show per-field errors instead of browser bubbles,
+             while the HTML attributes remain as a real fallback for no-JS users -->
+        <form id="contact-form" class="card form-card" action="#" method="post" novalidate>
+
+          <!-- Name -->
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text"
+                   required minlength="3" maxlength="80"
+                   autocomplete="name"
+                   aria-describedby="name-error" />
+            <p id="name-error" class="error" role="alert" hidden></p>
+          </div>
+
+          <!-- Email -->
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email"
+                   required
+                   autocomplete="email"
+                   aria-describedby="email-error" />
+            <p id="email-error" class="error" role="alert" hidden></p>
+          </div>
+
+          <!-- Subject -->
+          <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required aria-describedby="subject-error">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="internship">Internship opportunity</option>
+              <option value="freelance">Freelance project</option>
+              <option value="collab">Collaboration</option>
+              <option value="other">Other</option>
+            </select>
+            <p id="subject-error" class="error" role="alert" hidden></p>
+          </div>
+
+          <!-- Message -->
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6"
+                      required minlength="20" maxlength="1000"
+                      aria-describedby="message-error"></textarea>
+            <p id="message-error" class="error" role="alert" hidden></p>
+          </div>
+
+          <!-- How did you hear — fieldset + legend -->
+          <fieldset class="field">
+            <legend>How did you hear about me?</legend>
+            <div class="radio-row">
+              <label class="radio"><input type="radio" name="source" value="github" required /> <span>GitHub</span></label>
+              <label class="radio"><input type="radio" name="source" value="linkedin" /> <span>LinkedIn</span></label>
+              <label class="radio"><input type="radio" name="source" value="friend" /> <span>A friend</span></label>
+              <label class="radio"><input type="radio" name="source" value="search" /> <span>Search engine</span></label>
+            </div>
+            <p id="source-error" class="error" role="alert" hidden></p>
+          </fieldset>
+
+          <!-- Consent -->
+          <div class="field checkbox-row">
+            <label class="checkbox">
+              <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error" />
+              <span>I agree to be contacted about this enquiry.</span>
+            </label>
+            <p id="consent-error" class="error" role="alert" hidden></p>
+          </div>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Muhammad Hammad Imran</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="mailto:hello@example.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
